@@ -1,0 +1,43 @@
+---
+description: "This rule initializes the process of creating project-specific coding rules by analyzing the codebase."
+globs: [] # Typically not auto-applied, but invoked by the user/agent.
+alwaysApply: false
+---
+
+# Rule: Initialize Project-Specific Coding Rules
+
+**Objective:** Analyze the current project's codebase (or specified directories like `@src/`, `@components/`, etc.) to identify recurring coding patterns, conventions, commonly used libraries/frameworks, architectural decisions, and formatting styles. Based on this analysis, generate an initial set of Cursor rule files (`.mdc`) to help the LLM agent adhere to this project's specific standards.
+
+## Instructions for the LLM Agent:
+
+1.  **Target Scope:**
+    *   The user will specify which parts of the codebase to analyze (e.g., "Analyze the `@src/` directory" or "Analyze all Python files in the project"). If not specified, ask the user for the primary source code directories.
+
+2.  **Analysis Focus:** Examine the codebase for:
+    *   **Code Structure & Formatting:** Indentation, line length, use of whitespace, commenting style.
+    *   **Naming Conventions:** For variables, functions, classes, modules, constants.
+    *   **Import Practices:** Order of imports, use of absolute/relative imports.
+    *   **Common Libraries/Frameworks:** Identify frequently used libraries (e.g., `requests`, `pandas`, `react`, `express`) and any conventional patterns for their usage within this project.
+    *   **Error Handling Patterns:** Common ways errors are caught, logged, or reported.
+    *   **API Usage:** Patterns for defining, calling, or interacting with internal or external APIs.
+    *   **Data Structures:** Common ways data is structured or passed around.
+    *   **Concurrency/Asynchronicity:** Patterns for handling asynchronous operations (e.g., `async/await`, promises, callbacks).
+    *   **Testing Patterns:** How tests are structured, common testing libraries, assertion styles (if test files are in scope).
+    *   **Language-Specific Idioms:** Idiomatic ways of writing code in the project's primary language(s).
+
+3.  **Rule Generation:**
+    *   For each significant and recurring pattern or convention identified, determine the core principle.
+    *   Create a separate Cursor rule file (`.mdc`) for each principle in an appropriate subfolder of `.cursor/rules/` (e.g., `.cursor/rules/python-rules/`, `.cursor/rules/js-rules/`).
+    *   **Prioritize `Agent Requested` type rules (`-agent.mdc`).** Formulate the `description` (in English) to clearly indicate when the rule should be applied.
+    *   For very general, file-type-specific patterns (e.g., import order for all `.py` files), consider `Auto Attached` type rules (`-auto.mdc`) with appropriate `globs`.
+    *   In each rule, document clear "Critical Rules" (in English) and provide at least one positive (`<example>`) and one negative (`<example type="invalid">`) code example derived from or reflecting the analysis of the existing codebase. Examples can be in the codebase's language.
+    *   **Do not create rules for one-offs or very rare patterns.** Focus on established practices.
+
+4.  **Confirmation:** After generating the rules, list the paths of the created rule files, their type (Agent Requested/Auto Attached), and their description.
+
+## Example Invocation by Human:
+
+"`@rules-init.mdc` Hi there! Please help me create an initial set of coding rules for this project. Focus your analysis on the `src/` directory."
+
+---
+*This `rules-init.mdc` itself is a template. It can be customized further for specific projects if needed before invoking the agent with it.*
