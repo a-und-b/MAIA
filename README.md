@@ -52,6 +52,20 @@ The goal of MAIA is to help you quickly set up a new or existing project for mor
    * Store these generated rules within this directory structure.
 5. **Collaborate!** Start working with your LLM assistant, applying the principles from `README-HUMAN.md` and leveraging the context provided in the `memory-bank/`.
 
+## 💡 Acknowledgements
+
+MAIA is inspired by and builds upon several innovative concepts in the AI-assisted development space:
+
+* **Memory Bank Concept**: The structured memory approach was inspired by various community contributions in the Cursor ecosystem. Special thanks to users like [Islem Maboud (CoderOne)](https://github.com/ipenywis) who shared early iterations of Memory Bank templates through tutorials and GitHub Gists that demonstrated the power of persistent context for LLM interactions.
+
+* **Cursor Editor**: [Cursor](https://cursor.sh/) is an AI-powered code editor developed by Anysphere Inc. that integrates advanced AI capabilities directly into the coding environment. MAIA's `.cursor/rules/` component is designed to work seamlessly with Cursor's project rules system.
+
+* **Cline's Memory Bank**: The implementation was also influenced by similar approaches in other AI tools like Cline, which implemented a structured memory system for maintaining context across sessions.
+
+* **Community Contributions**: Many of the best practices in `README-HUMAN.md` were derived from community discussions across LLM forums and practical experiences shared by developers pioneering AI pair programming workflows.
+
+This framework represents an open-source effort to standardize and democratize effective AI-human collaboration patterns for software development. It aims to evolve with the rapidly advancing field of AI-assisted coding.
+
 ## 🙏 Contributing
 
 This framework is a starting point. Feedback and suggestions for improvement are welcome! If you develop additional useful templates or refine the guidance, consider submitting a pull request or opening an issue.
