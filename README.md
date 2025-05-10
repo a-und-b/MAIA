@@ -56,7 +56,9 @@ The goal of MAIA is to help you quickly set up a new or existing project for mor
 
 MAIA is inspired by and builds upon several innovative concepts in the AI-assisted development space:
 
-* **Memory Bank Concept**: The structured memory approach was inspired by various community contributions in the Cursor ecosystem. Special thanks to users like [Islem Maboud (CoderOne)](https://github.com/ipenywis) who shared early iterations of Memory Bank templates through tutorials and GitHub Gists that demonstrated the power of persistent context for LLM interactions.
+* **Direct Inspiration**: This project was directly inspired by [Ryosuke Suzuki's article](https://forum.cursor.com/t/how-to-add-cline-memory-bank-feature-to-your-cursor/67868) on implementing Cline's Memory Bank concept in Cursor. His pioneering work in adapting the Memory Bank approach for Cursor provided the foundational structure that MAIA builds upon.
+
+* **Memory Bank Concept**: The structured memory approach was influenced by various community contributions in the Cursor ecosystem. Special thanks to users like [Islem Maboud (CoderOne)](https://github.com/ipenywis) who shared early iterations of Memory Bank templates through tutorials and GitHub Gists that demonstrated the power of persistent context for LLM interactions.
 
 * **Cursor Editor**: [Cursor](https://cursor.sh/) is an AI-powered code editor developed by Anysphere Inc. that integrates advanced AI capabilities directly into the coding environment. MAIA's `.cursor/rules/` component is designed to work seamlessly with Cursor's project rules system.
 
