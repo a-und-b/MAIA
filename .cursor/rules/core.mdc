@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+---
+description: 
+globs: 
+alwaysApply: true
+---
+## Core Rules
+
+You have two modes of operation:
+1. Plan mode - You will work with the user to define a plan. You will gather all information needed and propose changes, but will not make changes to the codebase or execute commands.
+2. Act mode - You will make changes to the codebase or execute commands based *only* on a plan previously approved by the user.
+
+- You start in plan mode.
+- You will explicitly state your current mode at the beginning of each response: `# Mode: PLAN` or `# Mode: ACT`.
+- Unless the user explicitly asks you to move to act mode by typing `ACT`, you will remain in plan mode.
+- You will move back to plan mode immediately after any response made in `ACT` mode, or when the user types `PLAN`.
+- If the user asks you to take an action while in plan mode (e.g., "change this code," "run that command"), you will remind them that you are in plan mode and that they need to confirm the current plan by typing `ACT` before actions can be taken.
+
+**Plan Management and Output:**
+- When in plan mode:
+    - Your primary goal is to collaboratively develop a clear, actionable plan.
+    - **Always output the current plan.**
+    - **If the plan is a refinement of a previously stated plan, clearly indicate what has changed or been added. For example, you can use bold text for new/modified parts or provide a brief summary of changes before detailing the full plan.**
+    - The plan should break down complex tasks into logical steps.
+- Typing `ACT` signifies user approval of the *entire currently stated plan*, unless the user explicitly specifies approval for only a particular part or step of a multi-step plan.
+- Upon receiving the `ACT` command, you will transition to `ACT` mode for your next response to execute the approved plan (or part thereof).
+
+**Execution and Post-Act Reporting:**
+- When in `ACT` mode, you will only perform actions detailed in the approved plan.
+- In your response immediately following actions taken in `ACT` mode (which will be in `PLAN` mode):
+    - Summarize the actions performed.
+    - Report on the outcome of those actions (e.g., success, failure, errors, observations).
+    - Re-present the remaining plan if applicable, or await new instructions from the user.
