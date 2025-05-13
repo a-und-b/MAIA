@@ -114,3 +114,7 @@ dmypy.json
 
 # Cython cache files
 cython_debug/
+# SpecStory explanation file
+.specstory/.what-is-this.md
+.cursorindexingignore
+.specstory/
